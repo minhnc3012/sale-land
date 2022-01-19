@@ -71,6 +71,12 @@ class LandResourceIT {
     private static final Double DEFAULT_AREA = 1D;
     private static final Double UPDATED_AREA = 2D;
 
+    private static final Double DEFAULT_LATITUDE = 1D;
+    private static final Double UPDATED_LATITUDE = 2D;
+
+    private static final Double DEFAULT_LONGITUDE = 1D;
+    private static final Double UPDATED_LONGITUDE = 2D;
+
     private static final String ENTITY_API_URL = "/api/lands";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -107,7 +113,9 @@ class LandResourceIT {
             .description(DEFAULT_DESCRIPTION)
             .width(DEFAULT_WIDTH)
             .height(DEFAULT_HEIGHT)
-            .area(DEFAULT_AREA);
+            .area(DEFAULT_AREA)
+            .latitude(DEFAULT_LATITUDE)
+            .longitude(DEFAULT_LONGITUDE);
         return land;
     }
 
@@ -130,7 +138,9 @@ class LandResourceIT {
             .description(UPDATED_DESCRIPTION)
             .width(UPDATED_WIDTH)
             .height(UPDATED_HEIGHT)
-            .area(UPDATED_AREA);
+            .area(UPDATED_AREA)
+            .latitude(UPDATED_LATITUDE)
+            .longitude(UPDATED_LONGITUDE);
         return land;
     }
 
@@ -166,6 +176,8 @@ class LandResourceIT {
         assertThat(testLand.getWidth()).isEqualTo(DEFAULT_WIDTH);
         assertThat(testLand.getHeight()).isEqualTo(DEFAULT_HEIGHT);
         assertThat(testLand.getArea()).isEqualTo(DEFAULT_AREA);
+        assertThat(testLand.getLatitude()).isEqualTo(DEFAULT_LATITUDE);
+        assertThat(testLand.getLongitude()).isEqualTo(DEFAULT_LONGITUDE);
     }
 
     @Test
@@ -211,7 +223,9 @@ class LandResourceIT {
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].width").value(hasItem(DEFAULT_WIDTH.doubleValue())))
             .andExpect(jsonPath("$.[*].height").value(hasItem(DEFAULT_HEIGHT.doubleValue())))
-            .andExpect(jsonPath("$.[*].area").value(hasItem(DEFAULT_AREA.doubleValue())));
+            .andExpect(jsonPath("$.[*].area").value(hasItem(DEFAULT_AREA.doubleValue())))
+            .andExpect(jsonPath("$.[*].latitude").value(hasItem(DEFAULT_LATITUDE.doubleValue())))
+            .andExpect(jsonPath("$.[*].longitude").value(hasItem(DEFAULT_LONGITUDE.doubleValue())));
     }
 
     @Test
@@ -237,7 +251,9 @@ class LandResourceIT {
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
             .andExpect(jsonPath("$.width").value(DEFAULT_WIDTH.doubleValue()))
             .andExpect(jsonPath("$.height").value(DEFAULT_HEIGHT.doubleValue()))
-            .andExpect(jsonPath("$.area").value(DEFAULT_AREA.doubleValue()));
+            .andExpect(jsonPath("$.area").value(DEFAULT_AREA.doubleValue()))
+            .andExpect(jsonPath("$.latitude").value(DEFAULT_LATITUDE.doubleValue()))
+            .andExpect(jsonPath("$.longitude").value(DEFAULT_LONGITUDE.doubleValue()));
     }
 
     @Test
@@ -271,7 +287,9 @@ class LandResourceIT {
             .description(UPDATED_DESCRIPTION)
             .width(UPDATED_WIDTH)
             .height(UPDATED_HEIGHT)
-            .area(UPDATED_AREA);
+            .area(UPDATED_AREA)
+            .latitude(UPDATED_LATITUDE)
+            .longitude(UPDATED_LONGITUDE);
 
         restLandMockMvc
             .perform(
@@ -298,6 +316,8 @@ class LandResourceIT {
         assertThat(testLand.getWidth()).isEqualTo(UPDATED_WIDTH);
         assertThat(testLand.getHeight()).isEqualTo(UPDATED_HEIGHT);
         assertThat(testLand.getArea()).isEqualTo(UPDATED_AREA);
+        assertThat(testLand.getLatitude()).isEqualTo(UPDATED_LATITUDE);
+        assertThat(testLand.getLongitude()).isEqualTo(UPDATED_LONGITUDE);
     }
 
     @Test
@@ -380,7 +400,8 @@ class LandResourceIT {
             .priceType(UPDATED_PRICE_TYPE)
             .feeType(UPDATED_FEE_TYPE)
             .description(UPDATED_DESCRIPTION)
-            .height(UPDATED_HEIGHT);
+            .height(UPDATED_HEIGHT)
+            .latitude(UPDATED_LATITUDE);
 
         restLandMockMvc
             .perform(
@@ -407,6 +428,8 @@ class LandResourceIT {
         assertThat(testLand.getWidth()).isEqualTo(DEFAULT_WIDTH);
         assertThat(testLand.getHeight()).isEqualTo(UPDATED_HEIGHT);
         assertThat(testLand.getArea()).isEqualTo(DEFAULT_AREA);
+        assertThat(testLand.getLatitude()).isEqualTo(UPDATED_LATITUDE);
+        assertThat(testLand.getLongitude()).isEqualTo(DEFAULT_LONGITUDE);
     }
 
     @Test
@@ -433,7 +456,9 @@ class LandResourceIT {
             .description(UPDATED_DESCRIPTION)
             .width(UPDATED_WIDTH)
             .height(UPDATED_HEIGHT)
-            .area(UPDATED_AREA);
+            .area(UPDATED_AREA)
+            .latitude(UPDATED_LATITUDE)
+            .longitude(UPDATED_LONGITUDE);
 
         restLandMockMvc
             .perform(
@@ -460,6 +485,8 @@ class LandResourceIT {
         assertThat(testLand.getWidth()).isEqualTo(UPDATED_WIDTH);
         assertThat(testLand.getHeight()).isEqualTo(UPDATED_HEIGHT);
         assertThat(testLand.getArea()).isEqualTo(UPDATED_AREA);
+        assertThat(testLand.getLatitude()).isEqualTo(UPDATED_LATITUDE);
+        assertThat(testLand.getLongitude()).isEqualTo(UPDATED_LONGITUDE);
     }
 
     @Test

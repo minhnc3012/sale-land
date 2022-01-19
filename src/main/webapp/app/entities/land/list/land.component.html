@@ -53,6 +53,12 @@
           <th scope="col" jhiSortBy="width"><span jhiTranslate="salelandApp.land.width">Width</span> <fa-icon icon="sort"></fa-icon></th>
           <th scope="col" jhiSortBy="height"><span jhiTranslate="salelandApp.land.height">Height</span> <fa-icon icon="sort"></fa-icon></th>
           <th scope="col" jhiSortBy="area"><span jhiTranslate="salelandApp.land.area">Area</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="latitude">
+            <span jhiTranslate="salelandApp.land.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="longitude">
+            <span jhiTranslate="salelandApp.land.longitude">Longitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -73,6 +79,8 @@
           <td>{{ land.width }}</td>
           <td>{{ land.height }}</td>
           <td>{{ land.area }}</td>
+          <td>{{ land.latitude }}</td>
+          <td>{{ land.longitude }}</td>
           <td class="text-right">
             <div class="btn-group">
               <button type="submit" [routerLink]="['/land', land.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">

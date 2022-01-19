@@ -30,8 +30,11 @@
       "width": "Width",
       "height": "Height",
       "area": "Area",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
       "tags": "Tags",
-      "photos": "Photos"
+      "photos": "Photos",
+      "coordinates": "Coordinates"
     }
   }
 }

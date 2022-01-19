@@ -31,6 +31,8 @@ entity Land {
     width Double,
     height Double,
     area Double,
+    latitude Double,
+    longitude Double
 }
 entity LandTag {
 	tag String
@@ -39,7 +41,11 @@ entity LandTag {
 entity LandPhoto {
 	imageUrl String
 }
-
+entity LandCoordinate {
+	latitude Double,
+    longitude Double
+    
+}
 relationship ManyToOne {
 	LandTag{land} to Land{tags}
 }
@@ -47,6 +53,11 @@ relationship ManyToOne {
 relationship ManyToOne {
 	LandPhoto{land} to Land{photos}
 }
+
+relationship ManyToOne {
+	LandCoordinate{land} to Land{coordinates}
+}
+
 // Options
 service * with serviceClass
 paginate * with pagination

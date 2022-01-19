@@ -53,6 +53,14 @@
     {
       "fieldName": "area",
       "fieldType": "Double"
+    },
+    {
+      "fieldName": "latitude",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "Double"
     }
   ],
   "relationships": [
@@ -67,6 +75,12 @@
       "otherEntityName": "landPhoto",
       "otherEntityRelationshipName": "land",
       "relationshipName": "photos"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "landCoordinate",
+      "otherEntityRelationshipName": "land",
+      "relationshipName": "coordinates"
     }
   ],
   "entityTableName": "land",

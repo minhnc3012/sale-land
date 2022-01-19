@@ -38,6 +38,8 @@ describe('Land Service', () => {
       width: 0,
       height: 0,
       area: 0,
+      latitude: 0,
+      longitude: 0,
     };
   });
 
@@ -85,6 +87,8 @@ describe('Land Service', () => {
           width: 1,
           height: 1,
           area: 1,
+          latitude: 1,
+          longitude: 1,
         },
         elemDefault
       );
@@ -139,6 +143,8 @@ describe('Land Service', () => {
           width: 1,
           height: 1,
           area: 1,
+          latitude: 1,
+          longitude: 1,
         },
         elemDefault
       );
@@ -190,7 +196,7 @@ describe('Land Service', () => {
       });
 
       it('should add only unique Land to an array', () => {
-        const landArray: ILand[] = [{ id: 123 }, { id: 456 }, { id: 18720 }];
+        const landArray: ILand[] = [{ id: 123 }, { id: 456 }, { id: 84528 }];
         const landCollection: ILand[] = [{ id: 123 }];
         expectedResult = service.addLandToCollectionIfMissing(landCollection, ...landArray);
         expect(expectedResult).toHaveLength(3);

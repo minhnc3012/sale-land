@@ -50,6 +50,12 @@
             <column name="area" type="double">
                 <constraints nullable="true" />
             </column>
+            <column name="latitude" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="longitude" type="double">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
@@ -83,6 +89,8 @@
             <column name="width" type="numeric"/>
             <column name="height" type="numeric"/>
             <column name="area" type="numeric"/>
+            <column name="latitude" type="numeric"/>
+            <column name="longitude" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

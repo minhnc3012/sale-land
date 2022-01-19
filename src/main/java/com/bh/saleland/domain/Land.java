@@ -66,6 +66,12 @@ public class Land implements Serializable {
     @Column(name = "area")
     private Double area;
 
+    @Column(name = "latitude")
+    private Double latitude;
+
+    @Column(name = "longitude")
+    private Double longitude;
+
     @OneToMany(mappedBy = "land")
     @JsonIgnoreProperties(value = { "land" }, allowSetters = true)
     private Set<LandTag> tags = new HashSet<>();
@@ -73,6 +79,10 @@ public class Land implements Serializable {
     @OneToMany(mappedBy = "land")
     @JsonIgnoreProperties(value = { "land" }, allowSetters = true)
     private Set<LandPhoto> photos = new HashSet<>();
+
+    @OneToMany(mappedBy = "land")
+    @JsonIgnoreProperties(value = { "land" }, allowSetters = true)
+    private Set<LandCoordinate> coordinates = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -245,6 +255,32 @@ public class Land implements Serializable {
         this.area = area;
     }
 
+    public Double getLatitude() {
+        return this.latitude;
+    }
+
+    public Land latitude(Double latitude) {
+        this.setLatitude(latitude);
+        return this;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return this.longitude;
+    }
+
+    public Land longitude(Double longitude) {
+        this.setLongitude(longitude);
+        return this;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
     public Set<LandTag> getTags() {
         return this.tags;
     }
@@ -307,6 +343,37 @@ public class Land implements Serializable {
         return this;
     }
 
+    public Set<LandCoordinate> getCoordinates() {
+        return this.coordinates;
+    }
+
+    public void setCoordinates(Set<LandCoordinate> landCoordinates) {
+        if (this.coordinates != null) {
+            this.coordinates.forEach(i -> i.setLand(null));
+        }
+        if (landCoordinates != null) {
+            landCoordinates.forEach(i -> i.setLand(this));
+        }
+        this.coordinates = landCoordinates;
+    }
+
+    public Land coordinates(Set<LandCoordinate> landCoordinates) {
+        this.setCoordinates(landCoordinates);
+        return this;
+    }
+
+    public Land addCoordinates(LandCoordinate landCoordinate) {
+        this.coordinates.add(landCoordinate);
+        landCoordinate.setLand(this);
+        return this;
+    }
+
+    public Land removeCoordinates(LandCoordinate landCoordinate) {
+        this.coordinates.remove(landCoordinate);
+        landCoordinate.setLand(null);
+        return this;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -343,6 +410,8 @@ public class Land implements Serializable {
             ", width=" + getWidth() +
             ", height=" + getHeight() +
             ", area=" + getArea() +
+            ", latitude=" + getLatitude() +
+            ", longitude=" + getLongitude() +
             "}";
     }
 }

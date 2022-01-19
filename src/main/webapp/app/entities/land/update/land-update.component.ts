@@ -39,6 +39,8 @@ export class LandUpdateComponent implements OnInit {
     width: [],
     height: [],
     area: [],
+    latitude: [],
+    longitude: [],
   });
 
   constructor(protected landService: LandService, protected activatedRoute: ActivatedRoute, protected fb: FormBuilder) {}
@@ -97,6 +99,8 @@ export class LandUpdateComponent implements OnInit {
       width: land.width,
       height: land.height,
       area: land.area,
+      latitude: land.latitude,
+      longitude: land.longitude,
     });
   }
 
@@ -116,6 +120,8 @@ export class LandUpdateComponent implements OnInit {
       width: this.editForm.get(['width'])!.value,
       height: this.editForm.get(['height'])!.value,
       area: this.editForm.get(['area'])!.value,
+      latitude: this.editForm.get(['latitude'])!.value,
+      longitude: this.editForm.get(['longitude'])!.value,
     };
   }
 }

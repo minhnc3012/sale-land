@@ -22,7 +22,7 @@ public class LandTag implements Serializable {
     private String tag;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "tags", "photos" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "tags", "photos", "coordinates" }, allowSetters = true)
     private Land land;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

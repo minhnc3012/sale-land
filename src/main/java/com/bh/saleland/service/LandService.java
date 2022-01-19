@@ -84,6 +84,12 @@ public class LandService {
                 if (land.getArea() != null) {
                     existingLand.setArea(land.getArea());
                 }
+                if (land.getLatitude() != null) {
+                    existingLand.setLatitude(land.getLatitude());
+                }
+                if (land.getLongitude() != null) {
+                    existingLand.setLongitude(land.getLongitude());
+                }
 
                 return existingLand;
             })

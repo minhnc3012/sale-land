@@ -1,0 +1,26 @@
+{
+  "salelandApp": {
+    "landCoordinate": {
+      "home": {
+        "title": "Land Coordinates",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Land Coordinate",
+        "createOrEditLabel": "Create or edit a Land Coordinate",
+        "notFound": "No Land Coordinates found"
+      },
+      "created": "A new Land Coordinate is created with identifier {{ param }}",
+      "updated": "A Land Coordinate is updated with identifier {{ param }}",
+      "deleted": "A Land Coordinate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Land Coordinate {{ id }}?"
+      },
+      "detail": {
+        "title": "Land Coordinate"
+      },
+      "id": "ID",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "land": "Land"
+    }
+  }
+}

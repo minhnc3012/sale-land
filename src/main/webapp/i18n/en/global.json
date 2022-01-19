@@ -10,6 +10,7 @@
         "land": "Land",
         "landTag": "Land Tag",
         "landPhoto": "Land Photo",
+        "landCoordinate": "Land Coordinate",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -19,6 +19,11 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'salelandApp.landPhoto.home.title' },
         loadChildren: () => import('./land-photo/land-photo.module').then(m => m.LandPhotoModule),
       },
+      {
+        path: 'land-coordinate',
+        data: { pageTitle: 'salelandApp.landCoordinate.home.title' },
+        loadChildren: () => import('./land-coordinate/land-coordinate.module').then(m => m.LandCoordinateModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

@@ -5,11 +5,11 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * A LandPhoto.
+ * A LandCoordinate.
  */
 @Entity
-@Table(name = "land_photo")
-public class LandPhoto implements Serializable {
+@Table(name = "land_coordinate")
+public class LandCoordinate implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -18,8 +18,11 @@ public class LandPhoto implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "image_url")
-    private String imageUrl;
+    @Column(name = "latitude")
+    private Double latitude;
+
+    @Column(name = "longitude")
+    private Double longitude;
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "tags", "photos", "coordinates" }, allowSetters = true)
@@ -31,7 +34,7 @@ public class LandPhoto implements Serializable {
         return this.id;
     }
 
-    public LandPhoto id(Long id) {
+    public LandCoordinate id(Long id) {
         this.setId(id);
         return this;
     }
@@ -40,17 +43,30 @@ public class LandPhoto implements Serializable {
         this.id = id;
     }
 
-    public String getImageUrl() {
-        return this.imageUrl;
+    public Double getLatitude() {
+        return this.latitude;
     }
 
-    public LandPhoto imageUrl(String imageUrl) {
-        this.setImageUrl(imageUrl);
+    public LandCoordinate latitude(Double latitude) {
+        this.setLatitude(latitude);
         return this;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return this.longitude;
+    }
+
+    public LandCoordinate longitude(Double longitude) {
+        this.setLongitude(longitude);
+        return this;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     public Land getLand() {
@@ -61,7 +77,7 @@ public class LandPhoto implements Serializable {
         this.land = land;
     }
 
-    public LandPhoto land(Land land) {
+    public LandCoordinate land(Land land) {
         this.setLand(land);
         return this;
     }
@@ -73,10 +89,10 @@ public class LandPhoto implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof LandPhoto)) {
+        if (!(o instanceof LandCoordinate)) {
             return false;
         }
-        return id != null && id.equals(((LandPhoto) o).id);
+        return id != null && id.equals(((LandCoordinate) o).id);
     }
 
     @Override
@@ -88,9 +104,10 @@ public class LandPhoto implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "LandPhoto{" +
+        return "LandCoordinate{" +
             "id=" + getId() +
-            ", imageUrl='" + getImageUrl() + "'" +
+            ", latitude=" + getLatitude() +
+            ", longitude=" + getLongitude() +
             "}";
     }
 }

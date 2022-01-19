@@ -1,0 +1,26 @@
+{
+  "salelandApp": {
+    "landCoordinate": {
+      "home": {
+        "title": "Land Coordinates",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Land Coordinate",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Land Coordinate",
+        "notFound": "No Land Coordinates found"
+      },
+      "created": "Một Land Coordinate mới được tạo với định danh {{ param }}",
+      "updated": "Một Land Coordinate cập nhật với định danh {{ param }}",
+      "deleted": "Một Land Coordinate đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Land Coordinate {{ id }}?"
+      },
+      "detail": {
+        "title": "Land Coordinate"
+      },
+      "id": "ID",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "land": "Land"
+    }
+  }
+}

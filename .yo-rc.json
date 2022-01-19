@@ -41,7 +41,7 @@
     "clientThemeVariant": "",
     "languages": ["en", "vi"],
     "enableGradleEnterprise": false,
-    "entities": ["Land", "LandTag", "LandPhoto"],
-    "lastLiquibaseTimestamp": 1642581939000
+    "entities": ["Land", "LandTag", "LandPhoto", "LandCoordinate"],
+    "lastLiquibaseTimestamp": 1642583733000
   }
 }

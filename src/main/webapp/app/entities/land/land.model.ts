@@ -1,5 +1,6 @@
 import { ILandTag } from 'app/entities/land-tag/land-tag.model';
 import { ILandPhoto } from 'app/entities/land-photo/land-photo.model';
+import { ILandCoordinate } from 'app/entities/land-coordinate/land-coordinate.model';
 import { LandStatus } from 'app/entities/enumerations/land-status.model';
 import { LandType } from 'app/entities/enumerations/land-type.model';
 import { UnitPriceType } from 'app/entities/enumerations/unit-price-type.model';
@@ -20,8 +21,11 @@ export interface ILand {
   width?: number | null;
   height?: number | null;
   area?: number | null;
+  latitude?: number | null;
+  longitude?: number | null;
   tags?: ILandTag[] | null;
   photos?: ILandPhoto[] | null;
+  coordinates?: ILandCoordinate[] | null;
 }
 
 export class Land implements ILand {
@@ -39,8 +43,11 @@ export class Land implements ILand {
     public width?: number | null,
     public height?: number | null,
     public area?: number | null,
+    public latitude?: number | null,
+    public longitude?: number | null,
     public tags?: ILandTag[] | null,
-    public photos?: ILandPhoto[] | null
+    public photos?: ILandPhoto[] | null,
+    public coordinates?: ILandCoordinate[] | null
   ) {}
 }
 
