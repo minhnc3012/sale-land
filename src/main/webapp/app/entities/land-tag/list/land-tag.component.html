@@ -1,0 +1,102 @@
+<div>
+  <h2 id="page-heading" data-cy="LandTagHeading">
+    <span jhiTranslate="salelandApp.landTag.home.title">Land Tags</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="salelandApp.landTag.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-land-tag"
+        [routerLink]="['/land-tag/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="salelandApp.landTag.home.createLabel"> Create a new Land Tag </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="landTags?.length === 0">
+    <span jhiTranslate="salelandApp.landTag.home.notFound">No landTags found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="landTags && landTags.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="tag"><span jhiTranslate="salelandApp.landTag.tag">Tag</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="land.id"><span jhiTranslate="salelandApp.landTag.land">Land</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let landTag of landTags; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/land-tag', landTag.id, 'view']">{{ landTag.id }}</a>
+          </td>
+          <td>{{ landTag.tag }}</td>
+          <td>
+            <div *ngIf="landTag.land">
+              <a [routerLink]="['/land', landTag.land?.id, 'view']">{{ landTag.land?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/land-tag', landTag.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/land-tag', landTag.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(landTag)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="landTags && landTags.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

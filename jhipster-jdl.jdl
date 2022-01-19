@@ -1,0 +1,52 @@
+
+enum LandStatus {
+	A
+}
+
+enum LandType {
+	A
+}
+enum UnitPriceType {
+	A
+}
+
+enum PriceType {
+	A
+}
+
+enum FeeType {
+	A
+}
+
+entity Land {
+	title String,
+    address String,
+    status LandStatus,
+    type LandType,
+    price Double,
+    init UnitPriceType,
+    priceType PriceType,
+    feeType FeeType,
+    description String,
+    width Double,
+    height Double,
+    area Double,
+}
+entity LandTag {
+	tag String
+}
+
+entity LandPhoto {
+	imageUrl String
+}
+
+relationship ManyToOne {
+	LandTag{land} to Land{tags}
+}
+
+relationship ManyToOne {
+	LandPhoto{land} to Land{photos}
+}
+// Options
+service * with serviceClass
+paginate * with pagination

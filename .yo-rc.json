@@ -40,6 +40,8 @@
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
     "languages": ["en", "vi"],
-    "enableGradleEnterprise": false
+    "enableGradleEnterprise": false,
+    "entities": ["Land", "LandTag", "LandPhoto"],
+    "lastLiquibaseTimestamp": 1642581939000
   }
 }

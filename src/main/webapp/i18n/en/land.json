@@ -1,0 +1,37 @@
+{
+  "salelandApp": {
+    "land": {
+      "home": {
+        "title": "Lands",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Land",
+        "createOrEditLabel": "Create or edit a Land",
+        "notFound": "No Lands found"
+      },
+      "created": "A new Land is created with identifier {{ param }}",
+      "updated": "A Land is updated with identifier {{ param }}",
+      "deleted": "A Land is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Land {{ id }}?"
+      },
+      "detail": {
+        "title": "Land"
+      },
+      "id": "ID",
+      "title": "Title",
+      "address": "Address",
+      "status": "Status",
+      "type": "Type",
+      "price": "Price",
+      "init": "Init",
+      "priceType": "Price Type",
+      "feeType": "Fee Type",
+      "description": "Description",
+      "width": "Width",
+      "height": "Height",
+      "area": "Area",
+      "tags": "Tags",
+      "photos": "Photos"
+    }
+  }
+}

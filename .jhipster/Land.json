@@ -1,0 +1,82 @@
+{
+  "name": "Land",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "LandStatus",
+      "fieldValues": "A"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "LandType",
+      "fieldValues": "A"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "init",
+      "fieldType": "UnitPriceType",
+      "fieldValues": "A"
+    },
+    {
+      "fieldName": "priceType",
+      "fieldType": "PriceType",
+      "fieldValues": "A"
+    },
+    {
+      "fieldName": "feeType",
+      "fieldType": "FeeType",
+      "fieldValues": "A"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "width",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "height",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "area",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "landTag",
+      "otherEntityRelationshipName": "land",
+      "relationshipName": "tags"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "landPhoto",
+      "otherEntityRelationshipName": "land",
+      "relationshipName": "photos"
+    }
+  ],
+  "entityTableName": "land",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220119074658"
+}

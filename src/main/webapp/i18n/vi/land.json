@@ -1,0 +1,37 @@
+{
+  "salelandApp": {
+    "land": {
+      "home": {
+        "title": "Lands",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Land",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Land",
+        "notFound": "No Lands found"
+      },
+      "created": "Một Land mới được tạo với định danh {{ param }}",
+      "updated": "Một Land cập nhật với định danh {{ param }}",
+      "deleted": "Một Land đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Land {{ id }}?"
+      },
+      "detail": {
+        "title": "Land"
+      },
+      "id": "ID",
+      "title": "Title",
+      "address": "Address",
+      "status": "Status",
+      "type": "Type",
+      "price": "Price",
+      "init": "Init",
+      "priceType": "Price Type",
+      "feeType": "Fee Type",
+      "description": "Description",
+      "width": "Width",
+      "height": "Height",
+      "area": "Area",
+      "tags": "Tags",
+      "photos": "Photos"
+    }
+  }
+}

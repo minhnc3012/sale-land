@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="land">
+      <h2 data-cy="landDetailsHeading"><span jhiTranslate="salelandApp.land.detail.title">Land</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ land.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.title">Title</span></dt>
+        <dd>
+          <span>{{ land.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.address">Address</span></dt>
+        <dd>
+          <span>{{ land.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'salelandApp.LandStatus.' + land.status }}">{{ land.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'salelandApp.LandType.' + land.type }}">{{ land.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.price">Price</span></dt>
+        <dd>
+          <span>{{ land.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.init">Init</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'salelandApp.UnitPriceType.' + land.init }}">{{ land.init }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.priceType">Price Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'salelandApp.PriceType.' + land.priceType }}">{{ land.priceType }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.feeType">Fee Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'salelandApp.FeeType.' + land.feeType }}">{{ land.feeType }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.description">Description</span></dt>
+        <dd>
+          <span>{{ land.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.width">Width</span></dt>
+        <dd>
+          <span>{{ land.width }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.height">Height</span></dt>
+        <dd>
+          <span>{{ land.height }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.land.area">Area</span></dt>
+        <dd>
+          <span>{{ land.area }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/land', land.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
