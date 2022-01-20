@@ -3,11 +3,13 @@ package com.bh.saleland.service;
 import com.bh.saleland.config.Constants;
 import com.bh.saleland.domain.Authority;
 import com.bh.saleland.domain.User;
+import com.bh.saleland.domain.enumeration.OAuth2ProviderType;
 import com.bh.saleland.repository.AuthorityRepository;
 import com.bh.saleland.repository.PersistentTokenRepository;
 import com.bh.saleland.repository.UserRepository;
 import com.bh.saleland.security.AuthoritiesConstants;
 import com.bh.saleland.security.SecurityUtils;
+import com.bh.saleland.security.oauth2.CustomerOAuth2User;
 import com.bh.saleland.service.dto.AdminUserDTO;
 import com.bh.saleland.service.dto.UserDTO;
 import java.time.Instant;
@@ -322,5 +324,32 @@ public class UserService {
     @Transactional(readOnly = true)
     public List<String> getAuthorities() {
         return authorityRepository.findAll().stream().map(Authority::getName).collect(Collectors.toList());
+    }
+
+    public void processOAuthPostLogin(CustomerOAuth2User oAuth2User) {
+        String username = oAuth2User.getUsername();
+        Optional<User> optionalUser = userRepository.findOneByLogin(username);
+        User user = null;
+        if (optionalUser.isPresent()) {
+            user = optionalUser.get();
+            user.setFirstName(oAuth2User.getFirstName());
+            user.setLastName(oAuth2User.getLastName());
+            user.setLangKey(oAuth2User.getLangKey());
+            user.setImageUrl(oAuth2User.getImageUrl());
+        } else {
+            user = new User();
+            user.setEmail(username);
+            user.setFirstName(oAuth2User.getFirstName());
+            user.setLastName(oAuth2User.getLastName());
+            user.setLangKey(oAuth2User.getLangKey());
+            user.setImageUrl(oAuth2User.getImageUrl());
+            user.setLogin(username);
+            user.setActivated(Boolean.TRUE);
+            user.setProvider(OAuth2ProviderType.GOOGLE);
+            Set<Authority> authorities = new HashSet<>();
+            authorities.add(new Authority().name(AuthoritiesConstants.USER));
+            user.setAuthorities(authorities);
+        }
+        userRepository.save(user);
     }
 }

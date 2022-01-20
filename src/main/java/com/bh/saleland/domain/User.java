@@ -1,6 +1,7 @@
 package com.bh.saleland.domain;
 
 import com.bh.saleland.config.Constants;
+import com.bh.saleland.domain.enumeration.OAuth2ProviderType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.time.Instant;
@@ -35,9 +36,8 @@ public class User extends AbstractAuditingEntity implements Serializable {
     private String login;
 
     @JsonIgnore
-    @NotNull
     @Size(min = 60, max = 60)
-    @Column(name = "password_hash", length = 60, nullable = false)
+    @Column(name = "password_hash", length = 60)
     private String password;
 
     @Size(max = 50)
@@ -77,6 +77,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @Column(name = "reset_date")
     private Instant resetDate = null;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "provider")
+    @JsonIgnore
+    private OAuth2ProviderType provider;
 
     @JsonIgnore
     @ManyToMany
@@ -187,6 +192,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setLangKey(String langKey) {
         this.langKey = langKey;
+    }
+
+    public OAuth2ProviderType getProvider() {
+        return provider;
+    }
+
+    public void setProvider(OAuth2ProviderType provider) {
+        this.provider = provider;
     }
 
     public Set<Authority> getAuthorities() {

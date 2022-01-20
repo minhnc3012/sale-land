@@ -1,6 +1,9 @@
 package com.bh.saleland.config;
 
 import com.bh.saleland.security.*;
+import com.bh.saleland.security.oauth2.CustomerOAuth2UserService;
+import com.bh.saleland.security.oauth2.OAuth2AuthenticationSuccessHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
@@ -31,6 +34,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final CorsFilter corsFilter;
     private final SecurityProblemSupport problemSupport;
+
+    @Autowired
+    private CustomerOAuth2UserService oAuth2UserService;
+
+    @Autowired
+    private OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler;
 
     public SecurityConfiguration(
         RememberMeServices rememberMeServices,
@@ -99,6 +108,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .failureHandler(ajaxAuthenticationFailureHandler())
             .permitAll()
         .and()
+        .oauth2Login()
+            .loginPage("/login")
+            .userInfoEndpoint()
+            .userService(oAuth2UserService)
+        .and()
+            .successHandler(oAuth2AuthenticationSuccessHandler)
+        .and()
             .logout()
             .logoutUrl("/api/logout")
             .logoutSuccessHandler(ajaxLogoutSuccessHandler())
@@ -115,6 +131,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .deny()
         .and()
             .authorizeRequests()
+            .antMatchers("/oauth2/**").permitAll()
             .antMatchers("/api/authenticate").permitAll()
             .antMatchers("/api/register").permitAll()
             .antMatchers("/api/activate").permitAll()

@@ -1,5 +1,6 @@
 package com.bh.saleland.security;
 
+import com.bh.saleland.security.oauth2.CustomerOAuth2User;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -31,6 +32,9 @@ public final class SecurityUtils {
             return null;
         } else if (authentication.getPrincipal() instanceof UserDetails) {
             UserDetails springSecurityUser = (UserDetails) authentication.getPrincipal();
+            return springSecurityUser.getUsername();
+        } else if (authentication.getPrincipal() instanceof CustomerOAuth2User) {
+            CustomerOAuth2User springSecurityUser = (CustomerOAuth2User) authentication.getPrincipal();
             return springSecurityUser.getUsername();
         } else if (authentication.getPrincipal() instanceof String) {
             return (String) authentication.getPrincipal();
