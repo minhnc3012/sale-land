@@ -21,7 +21,6 @@ public class OAuth2AuthenticationSuccessHandler implements AuthenticationSuccess
         throws IOException, ServletException {
         CustomerOAuth2User oAuth2User = (CustomerOAuth2User) authentication.getPrincipal();
         userService.processOAuthPostLogin(oAuth2User);
-
         response.sendRedirect("/");
     }
 }

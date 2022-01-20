@@ -8,9 +8,11 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 public class CustomerOAuth2User implements OAuth2User {
 
     private OAuth2User oAuth2User;
+    private String oAuth2ClientName;
 
-    public CustomerOAuth2User(OAuth2User oAuth2User) {
+    public CustomerOAuth2User(OAuth2User oAuth2User, String oAuth2ClientName) {
         this.oAuth2User = oAuth2User;
+        this.oAuth2ClientName = oAuth2ClientName;
     }
 
     @Override
@@ -26,6 +28,10 @@ public class CustomerOAuth2User implements OAuth2User {
     @Override
     public String getName() {
         return oAuth2User.getAttribute("name");
+    }
+
+    public String getOauth2ClientName() {
+        return this.oAuth2ClientName;
     }
 
     public String getUsername() {
