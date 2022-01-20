@@ -336,6 +336,7 @@ public class UserService {
             user.setLastName(oAuth2User.getLastName());
             user.setLangKey(oAuth2User.getLangKey());
             user.setImageUrl(oAuth2User.getImageUrl());
+            user.setProvider(OAuth2ProviderType.valueOf(oAuth2User.getOauth2ClientName().toUpperCase()));
         } else {
             user = new User();
             user.setEmail(username);
@@ -345,7 +346,7 @@ public class UserService {
             user.setImageUrl(oAuth2User.getImageUrl());
             user.setLogin(username);
             user.setActivated(Boolean.TRUE);
-            user.setProvider(OAuth2ProviderType.GOOGLE);
+            user.setProvider(OAuth2ProviderType.valueOf(oAuth2User.getOauth2ClientName().toUpperCase()));
             Set<Authority> authorities = new HashSet<>();
             authorities.add(new Authority().name(AuthoritiesConstants.USER));
             user.setAuthorities(authorities);
