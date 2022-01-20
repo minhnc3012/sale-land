@@ -54,6 +54,12 @@ spring:
             scope:
               - email
               - profile
+          facebook:
+            client-id: 280913796334127
+            client-secret: da49bdd1772fee02fa34833e055080f0
+            scope:
+              - email
+              - public_profile
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
