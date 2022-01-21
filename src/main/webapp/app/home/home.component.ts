@@ -22,6 +22,24 @@ export class HomeComponent implements OnInit, OnDestroy {
   display: any;
   markerOptions: google.maps.MarkerOptions = { draggable: true };
   markerPositions: google.maps.LatLngLiteral[] = [];
+  vertices: google.maps.LatLngLiteral[] = [
+    { lat: 13, lng: 13 },
+    { lat: -13, lng: 0 },
+    { lat: 13, lng: -13 },
+  ];
+
+  imageUrl = 'https://angular.io/assets/images/logos/angular/angular.svg';
+  imageBounds: google.maps.LatLngBoundsLiteral = {
+    east: 10,
+    north: 10,
+    south: -10,
+    west: -10,
+  };
+
+  circleCenter: google.maps.LatLngLiteral = { lat: 10, lng: 15 };
+  radius = 3;
+
+  kmlUrl = 'https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml';
 
   account: Account | null = null;
 

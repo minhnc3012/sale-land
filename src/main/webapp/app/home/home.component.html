@@ -17,6 +17,11 @@
           (mapClick)="openInfoWindow(marker)"
         ></map-marker>
         <map-info-window>Info Window content</map-info-window>
+        <map-polyline [path]="vertices"></map-polyline>
+        <!--        <map-ground-overlay [url]="imageUrl"-->
+        <!--                            [bounds]="imageBounds"></map-ground-overlay>-->
+        <map-circle [center]="circleCenter" [radius]="radius"></map-circle>
+        <map-kml-layer [url]="kmlUrl"></map-kml-layer>
       </google-map>
       <hr />
       <div>Latitude: {{ display?.lat }}</div>
