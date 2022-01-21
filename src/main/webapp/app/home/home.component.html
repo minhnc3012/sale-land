@@ -7,6 +7,22 @@
     <h1 class="display-4"><span jhiTranslate="home.title">Welcome, Java Hipster!</span> (Saleland)</h1>
 
     <p class="lead" jhiTranslate="home.subtitle">This is your homepage</p>
+    <div *ngIf="apiLoaded | async">
+      <google-map height="400px" width="750px" [center]="center" [zoom]="zoom" (mapClick)="addMarker($event)" (mapMousemove)="move($event)">
+        <map-marker
+          #marker="mapMarker"
+          *ngFor="let markerPosition of markerPositions"
+          [position]="markerPosition"
+          [options]="markerOptions"
+          (mapClick)="openInfoWindow(marker)"
+        ></map-marker>
+        <map-info-window>Info Window content</map-info-window>
+      </google-map>
+      <hr />
+      <div>Latitude: {{ display?.lat }}</div>
+      <div>Longitude: {{ display?.lng }}</div>
+      <hr />
+    </div>
 
     <div [ngSwitch]="account !== null">
       <div class="alert alert-success" *ngSwitchCase="true">

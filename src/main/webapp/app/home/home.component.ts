@@ -1,10 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Subject, Observable, of } from 'rxjs';
+import { catchError, map, takeUntil } from 'rxjs/operators';
 
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/auth/account.model';
+import { HttpClient } from '@angular/common/http';
+import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 
 @Component({
   selector: 'jhi-home',
@@ -12,11 +14,27 @@ import { Account } from 'app/core/auth/account.model';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  @ViewChild(MapInfoWindow) infoWindow?: MapInfoWindow;
+
+  apiLoaded: Observable<boolean>;
+  center = { lat: 24, lng: 12 };
+  zoom = 4;
+  display: any;
+  markerOptions: google.maps.MarkerOptions = { draggable: true };
+  markerPositions: google.maps.LatLngLiteral[] = [];
+
   account: Account | null = null;
 
   private readonly destroy$ = new Subject<void>();
 
-  constructor(private accountService: AccountService, private router: Router) {}
+  constructor(private accountService: AccountService, private router: Router, private httpClient: HttpClient) {
+    this.apiLoaded = httpClient
+      .jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyDSw-TND6FewgVIcfZRf1148d6nb7pWt0s', 'callback')
+      .pipe(
+        map(() => true),
+        catchError(() => of(false))
+      );
+  }
 
   ngOnInit(): void {
     this.accountService
@@ -32,5 +50,27 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  moveMap(event: google.maps.MapMouseEvent): void {
+    if (event.latLng) {
+      this.center = event.latLng.toJSON();
+    }
+  }
+
+  move(event: google.maps.MapMouseEvent): void {
+    if (event.latLng) {
+      this.display = event.latLng.toJSON();
+    }
+  }
+
+  addMarker(event: google.maps.MapMouseEvent): void {
+    if (event.latLng) {
+      this.markerPositions.push(event.latLng.toJSON());
+    }
+  }
+
+  openInfoWindow(marker: MapMarker): void {
+    this.infoWindow?.open(marker);
   }
 }
