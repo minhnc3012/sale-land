@@ -20,7 +20,6 @@
     <include file="config/liquibase/changelog/20220119084539_added_entity_LandPhoto.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220119091533_added_entity_LandCoordinate.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20220119074658_added_entity_constraints_Land.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220119074659_added_entity_constraints_LandTag.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220119084539_added_entity_constraints_LandPhoto.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220119091533_added_entity_constraints_LandCoordinate.xml" relativeToChangelogFile="false"/>
