@@ -1,27 +1,27 @@
 {
-  "name": "LandPhoto",
+  "applications": "*",
+  "changelogDate": "20220119084539",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "land_photo",
   "fields": [
     {
       "fieldName": "imageUrl",
       "fieldType": "String"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LandPhoto",
+  "pagination": "pagination",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "land",
       "otherEntityRelationshipName": "photos",
-      "relationshipName": "land"
+      "relationshipName": "land",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "land_photo",
-  "dto": "no",
-  "pagination": "pagination",
-  "service": "serviceClass",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220119084539"
+  "service": "serviceClass"
 }

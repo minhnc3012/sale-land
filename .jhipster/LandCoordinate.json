@@ -1,5 +1,9 @@
 {
-  "name": "LandCoordinate",
+  "applications": "*",
+  "changelogDate": "20220119091533",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "land_coordinate",
   "fields": [
     {
       "fieldName": "latitude",
@@ -10,22 +14,18 @@
       "fieldType": "Double"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LandCoordinate",
+  "pagination": "pagination",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "land",
       "otherEntityRelationshipName": "coordinates",
-      "relationshipName": "land"
+      "relationshipName": "land",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "land_coordinate",
-  "dto": "no",
-  "pagination": "pagination",
-  "service": "serviceClass",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220119091533"
+  "service": "serviceClass"
 }

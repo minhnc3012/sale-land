@@ -1,5 +1,9 @@
 {
-  "name": "Land",
+  "applications": "*",
+  "changelogDate": "20220119074658",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "land",
   "fields": [
     {
       "fieldName": "title",
@@ -63,34 +67,30 @@
       "fieldType": "Double"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Land",
+  "pagination": "pagination",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "landTag",
       "otherEntityRelationshipName": "land",
-      "relationshipName": "tags"
+      "relationshipName": "tags",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "landPhoto",
       "otherEntityRelationshipName": "land",
-      "relationshipName": "photos"
+      "relationshipName": "photos",
+      "relationshipType": "one-to-many"
     },
     {
-      "relationshipType": "one-to-many",
       "otherEntityName": "landCoordinate",
       "otherEntityRelationshipName": "land",
-      "relationshipName": "coordinates"
+      "relationshipName": "coordinates",
+      "relationshipType": "one-to-many"
     }
   ],
-  "entityTableName": "land",
-  "dto": "no",
-  "pagination": "pagination",
-  "service": "serviceClass",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220119074658"
+  "service": "serviceClass"
 }
