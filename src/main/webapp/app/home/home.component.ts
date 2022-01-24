@@ -7,6 +7,7 @@ import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/auth/account.model';
 import { HttpClient } from '@angular/common/http';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { GOOGLE_API_KEY, GOOGLE_API_URL } from '../config/googleapis.constants';
 
 @Component({
   selector: 'jhi-home',
@@ -46,12 +47,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject<void>();
 
   constructor(private accountService: AccountService, private router: Router, private httpClient: HttpClient) {
-    this.apiLoaded = httpClient
-      .jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyDSw-TND6FewgVIcfZRf1148d6nb7pWt0s', 'callback')
-      .pipe(
-        map(() => true),
-        catchError(() => of(false))
-      );
+    this.apiLoaded = httpClient.jsonp(GOOGLE_API_URL + '?key=' + GOOGLE_API_KEY, 'callback').pipe(
+      map(() => true),
+      catchError(() => of(false))
+    );
   }
 
   ngOnInit(): void {
