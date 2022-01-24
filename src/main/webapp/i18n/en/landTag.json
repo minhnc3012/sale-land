@@ -1,0 +1,25 @@
+{
+  "salelandApp": {
+    "landTag": {
+      "home": {
+        "title": "Land Tags",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Land Tag",
+        "createOrEditLabel": "Create or edit a Land Tag",
+        "notFound": "No Land Tags found"
+      },
+      "created": "A new Land Tag is created with identifier {{ param }}",
+      "updated": "A Land Tag is updated with identifier {{ param }}",
+      "deleted": "A Land Tag is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Land Tag {{ id }}?"
+      },
+      "detail": {
+        "title": "Land Tag"
+      },
+      "id": "ID",
+      "tag": "Tag",
+      "land": "Land"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "salelandApp": {
+    "landTag": {
+      "home": {
+        "title": "Land Tags",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Land Tag",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Land Tag",
+        "notFound": "No Land Tags found"
+      },
+      "created": "Một Land Tag mới được tạo với định danh {{ param }}",
+      "updated": "Một Land Tag cập nhật với định danh {{ param }}",
+      "deleted": "Một Land Tag đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Land Tag {{ id }}?"
+      },
+      "detail": {
+        "title": "Land Tag"
+      },
+      "id": "ID",
+      "tag": "Tag",
+      "land": "Land"
+    }
+  }
+}

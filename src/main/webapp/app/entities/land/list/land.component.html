@@ -1,0 +1,124 @@
+<div>
+  <h2 id="page-heading" data-cy="LandHeading">
+    <span jhiTranslate="salelandApp.land.home.title">Lands</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="salelandApp.land.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-land"
+        [routerLink]="['/land/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="salelandApp.land.home.createLabel"> Create a new Land </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="lands?.length === 0">
+    <span jhiTranslate="salelandApp.land.home.notFound">No lands found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="lands && lands.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="title"><span jhiTranslate="salelandApp.land.title">Title</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="address">
+            <span jhiTranslate="salelandApp.land.address">Address</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="status"><span jhiTranslate="salelandApp.land.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="type"><span jhiTranslate="salelandApp.land.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="price"><span jhiTranslate="salelandApp.land.price">Price</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="init"><span jhiTranslate="salelandApp.land.init">Init</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="priceType">
+            <span jhiTranslate="salelandApp.land.priceType">Price Type</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="feeType">
+            <span jhiTranslate="salelandApp.land.feeType">Fee Type</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <span jhiTranslate="salelandApp.land.description">Description</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="width"><span jhiTranslate="salelandApp.land.width">Width</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="height"><span jhiTranslate="salelandApp.land.height">Height</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="area"><span jhiTranslate="salelandApp.land.area">Area</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="latitude">
+            <span jhiTranslate="salelandApp.land.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="longitude">
+            <span jhiTranslate="salelandApp.land.longitude">Longitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let land of lands; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/land', land.id, 'view']">{{ land.id }}</a>
+          </td>
+          <td>{{ land.title }}</td>
+          <td>{{ land.address }}</td>
+          <td jhiTranslate="{{ 'salelandApp.LandStatus.' + land.status }}">{{ land.status }}</td>
+          <td jhiTranslate="{{ 'salelandApp.LandType.' + land.type }}">{{ land.type }}</td>
+          <td>{{ land.price }}</td>
+          <td jhiTranslate="{{ 'salelandApp.UnitPriceType.' + land.init }}">{{ land.init }}</td>
+          <td jhiTranslate="{{ 'salelandApp.PriceType.' + land.priceType }}">{{ land.priceType }}</td>
+          <td jhiTranslate="{{ 'salelandApp.FeeType.' + land.feeType }}">{{ land.feeType }}</td>
+          <td>{{ land.description }}</td>
+          <td>{{ land.width }}</td>
+          <td>{{ land.height }}</td>
+          <td>{{ land.area }}</td>
+          <td>{{ land.latitude }}</td>
+          <td>{{ land.longitude }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/land', land.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/land', land.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(land)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="lands && lands.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "name": "LandPhoto",
+  "fields": [
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "land",
+      "otherEntityRelationshipName": "photos",
+      "relationshipName": "land"
+    }
+  ],
+  "entityTableName": "land_photo",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220119084539"
+}

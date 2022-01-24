@@ -1,0 +1,25 @@
+{
+  "salelandApp": {
+    "landPhoto": {
+      "home": {
+        "title": "Land Photos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Land Photo",
+        "createOrEditLabel": "Create or edit a Land Photo",
+        "notFound": "No Land Photos found"
+      },
+      "created": "A new Land Photo is created with identifier {{ param }}",
+      "updated": "A Land Photo is updated with identifier {{ param }}",
+      "deleted": "A Land Photo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Land Photo {{ id }}?"
+      },
+      "detail": {
+        "title": "Land Photo"
+      },
+      "id": "ID",
+      "imageUrl": "Image Url",
+      "land": "Land"
+    }
+  }
+}
