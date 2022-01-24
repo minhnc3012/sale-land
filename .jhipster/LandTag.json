@@ -1,27 +1,27 @@
 {
-  "name": "LandTag",
+  "applications": "*",
+  "changelogDate": "20220119074659",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "land_tag",
   "fields": [
     {
       "fieldName": "tag",
       "fieldType": "String"
     }
   ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LandTag",
+  "pagination": "pagination",
+  "readOnly": false,
   "relationships": [
     {
-      "relationshipType": "many-to-one",
       "otherEntityName": "land",
       "otherEntityRelationshipName": "tags",
-      "relationshipName": "land"
+      "relationshipName": "land",
+      "relationshipType": "many-to-one"
     }
   ],
-  "entityTableName": "land_tag",
-  "dto": "no",
-  "pagination": "pagination",
-  "service": "serviceClass",
-  "jpaMetamodelFiltering": false,
-  "fluentMethods": true,
-  "readOnly": false,
-  "embedded": false,
-  "applications": "*",
-  "changelogDate": "20220119074659"
+  "service": "serviceClass"
 }
