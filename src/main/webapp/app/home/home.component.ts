@@ -17,6 +17,11 @@ import { GOOGLE_API_KEY, GOOGLE_API_URL } from '../config/googleapis.constants';
 export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild(MapInfoWindow) infoWindow?: MapInfoWindow;
 
+  title = 'resize-observer';
+  width = 0;
+  height = 0;
+  domRectReadOnly: DOMRectReadOnly | undefined;
+
   apiLoaded: Observable<boolean>;
   center = { lat: 24, lng: 12 };
   zoom = 4;
@@ -89,5 +94,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   openInfoWindow(marker: MapMarker): void {
     this.infoWindow?.open(marker);
+  }
+
+  onResize(entry: ResizeObserverEntry[]): void {
+    this.width = entry[0].contentRect.width;
+    this.height = entry[0].contentRect.height;
+    this.domRectReadOnly = entry[0].contentRect;
   }
 }
