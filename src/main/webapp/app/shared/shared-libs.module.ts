@@ -8,6 +8,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
 import { AngularSplitModule } from 'angular-split';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxMaskModule } from 'ngx-mask';
+import { DialogModule } from './dialog/dialog.module';
 
 @NgModule({
   exports: [
@@ -21,6 +24,9 @@ import { AngularSplitModule } from 'angular-split';
     GoogleMapsModule,
     ResizeObserverModule,
     AngularSplitModule,
+    NgSelectModule,
+    NgxMaskModule,
+    DialogModule,
   ],
 })
 export class SharedLibsModule {}
