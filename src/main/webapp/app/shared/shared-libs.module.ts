@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
+import { AngularSplitModule } from 'angular-split';
 
 @NgModule({
   exports: [
@@ -19,6 +20,7 @@ import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
     TranslateModule,
     GoogleMapsModule,
     ResizeObserverModule,
+    AngularSplitModule,
   ],
 })
 export class SharedLibsModule {}
