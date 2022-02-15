@@ -83,6 +83,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @JsonIgnore
     private OAuth2ProviderType provider;
 
+    @Size(max = 50)
+    @Column(name = "provider_uid", length = 50)
+    @JsonIgnore
+    private String providerUID;
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -200,6 +205,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setProvider(OAuth2ProviderType provider) {
         this.provider = provider;
+    }
+
+    public String getProviderUID() {
+        return providerUID;
+    }
+
+    public void setProviderUID(String providerUID) {
+        this.providerUID = providerUID;
     }
 
     public Set<Authority> getAuthorities() {

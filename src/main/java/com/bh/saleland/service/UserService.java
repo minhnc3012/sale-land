@@ -333,6 +333,7 @@ public class UserService {
         if (optionalUser.isPresent()) {
             user = optionalUser.get();
             user.setProvider(OAuth2ProviderType.valueOf(oAuth2User.getOauth2ClientName().toUpperCase()));
+            user.setProviderUID(oAuth2User.getUID());
             if (OAuth2ProviderType.FACEBOOK.equals(user.getProvider())) {
                 String firstName = oAuth2User.getName().substring(0, oAuth2User.getName().indexOf(" ")).trim();
                 String lastName = oAuth2User.getName().substring(oAuth2User.getName().indexOf(" "), oAuth2User.getName().length()).trim();
@@ -348,6 +349,7 @@ public class UserService {
             user = new User();
             user.setEmail(username);
             user.setProvider(OAuth2ProviderType.valueOf(oAuth2User.getOauth2ClientName().toUpperCase()));
+            user.setProviderUID(oAuth2User.getUID());
             if (OAuth2ProviderType.FACEBOOK.equals(user.getProvider())) {
                 String firstName = oAuth2User.getName().substring(0, oAuth2User.getName().indexOf(" ")).trim();
                 String lastName = oAuth2User.getName().substring(oAuth2User.getName().indexOf(" "), oAuth2User.getName().length()).trim();

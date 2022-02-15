@@ -1,5 +1,6 @@
 package com.bh.saleland.security.oauth2;
 
+import com.bh.saleland.domain.enumeration.OAuth2ProviderType;
 import java.util.Collection;
 import java.util.Map;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,6 +35,14 @@ public class CustomerOAuth2User implements OAuth2User {
         return this.oAuth2ClientName;
     }
 
+    public String getUID() {
+        if (OAuth2ProviderType.GOOGLE.equals(OAuth2ProviderType.valueOf(this.oAuth2ClientName.toUpperCase()))) {
+            return oAuth2User.getAttribute("sub");
+        } else {
+            return oAuth2User.getAttribute("id");
+        }
+    }
+
     public String getUsername() {
         return oAuth2User.getAttribute("email");
     }
@@ -51,6 +60,10 @@ public class CustomerOAuth2User implements OAuth2User {
     }
 
     public String getImageUrl() {
-        return oAuth2User.getAttribute("picture");
+        if (OAuth2ProviderType.GOOGLE.equals(OAuth2ProviderType.valueOf(this.oAuth2ClientName.toUpperCase()))) {
+            return oAuth2User.getAttribute("picture");
+        } else {
+            return "https://graph.facebook.com/" + getUID() + "/picture?type=square";
+        }
     }
 }
