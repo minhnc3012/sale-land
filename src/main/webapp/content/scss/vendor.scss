@@ -8,5 +8,6 @@ eg $input-color: red;
 @import 'bootstrap-variables';
 // Import Bootstrap source files from node_modules
 @import '~bootstrap/scss/bootstrap';
-
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+@import '~@ng-select/ng-select/scss/default.theme';
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */
