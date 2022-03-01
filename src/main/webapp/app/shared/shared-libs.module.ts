@@ -11,6 +11,7 @@ import { AngularSplitModule } from 'angular-split';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxMaskModule } from 'ngx-mask';
 import { DialogModule } from './dialog/dialog.module';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   exports: [
@@ -27,6 +28,7 @@ import { DialogModule } from './dialog/dialog.module';
     NgSelectModule,
     NgxMaskModule,
     DialogModule,
+    QuillModule,
   ],
 })
 export class SharedLibsModule {}

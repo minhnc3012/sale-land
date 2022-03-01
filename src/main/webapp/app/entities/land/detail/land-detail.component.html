@@ -10,14 +10,15 @@
       <jhi-alert></jhi-alert>
 
       <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="global.field.id">ID</span></dt>
-        <dd>
-          <span>{{ land.id }}</span>
-        </dd>
         <dt><span jhiTranslate="salelandApp.land.title">Title</span></dt>
         <dd>
           <span>{{ land.title }}</span>
         </dd>
+        <dt><span jhiTranslate="salelandApp.land.description">Description</span></dt>
+        <dd>
+          <quill-view-html [content]="land.description ?? ''" theme="snow"></quill-view-html>
+        </dd>
+        <!--
         <dt><span jhiTranslate="salelandApp.land.address">Address</span></dt>
         <dd>
           <span>{{ land.address }}</span>
@@ -46,10 +47,6 @@
         <dd>
           <span jhiTranslate="{{ 'salelandApp.FeeType.' + land.feeType }}">{{ land.feeType }}</span>
         </dd>
-        <dt><span jhiTranslate="salelandApp.land.description">Description</span></dt>
-        <dd>
-          <span>{{ land.description }}</span>
-        </dd>
         <dt><span jhiTranslate="salelandApp.land.width">Width</span></dt>
         <dd>
           <span>{{ land.width }}</span>
@@ -70,6 +67,7 @@
         <dd>
           <span>{{ land.longitude }}</span>
         </dd>
+        -->
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

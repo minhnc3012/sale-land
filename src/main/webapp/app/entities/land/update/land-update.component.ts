@@ -24,6 +24,7 @@ export class LandUpdateComponent implements OnInit {
   unitPriceTypeValues = Object.keys(UnitPriceType);
   priceTypeValues = Object.keys(PriceType);
   feeTypeValues = Object.keys(FeeType);
+  content = '';
 
   editForm = this.fb.group({
     id: [],

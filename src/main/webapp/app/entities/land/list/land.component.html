@@ -34,30 +34,8 @@
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
           <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
           <th scope="col" jhiSortBy="title"><span jhiTranslate="salelandApp.land.title">Title</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="address">
-            <span jhiTranslate="salelandApp.land.address">Address</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="status"><span jhiTranslate="salelandApp.land.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="type"><span jhiTranslate="salelandApp.land.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="price"><span jhiTranslate="salelandApp.land.price">Price</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="init"><span jhiTranslate="salelandApp.land.init">Init</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="priceType">
-            <span jhiTranslate="salelandApp.land.priceType">Price Type</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="feeType">
-            <span jhiTranslate="salelandApp.land.feeType">Fee Type</span> <fa-icon icon="sort"></fa-icon>
-          </th>
           <th scope="col" jhiSortBy="description">
             <span jhiTranslate="salelandApp.land.description">Description</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="width"><span jhiTranslate="salelandApp.land.width">Width</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="height"><span jhiTranslate="salelandApp.land.height">Height</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="area"><span jhiTranslate="salelandApp.land.area">Area</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="latitude">
-            <span jhiTranslate="salelandApp.land.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="longitude">
-            <span jhiTranslate="salelandApp.land.longitude">Longitude</span> <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col"></th>
         </tr>
@@ -68,19 +46,7 @@
             <a [routerLink]="['/land', land.id, 'view']">{{ land.id }}</a>
           </td>
           <td>{{ land.title }}</td>
-          <td>{{ land.address }}</td>
-          <td jhiTranslate="{{ 'salelandApp.LandStatus.' + land.status }}">{{ land.status }}</td>
-          <td jhiTranslate="{{ 'salelandApp.LandType.' + land.type }}">{{ land.type }}</td>
-          <td>{{ land.price }}</td>
-          <td jhiTranslate="{{ 'salelandApp.UnitPriceType.' + land.init }}">{{ land.init }}</td>
-          <td jhiTranslate="{{ 'salelandApp.PriceType.' + land.priceType }}">{{ land.priceType }}</td>
-          <td jhiTranslate="{{ 'salelandApp.FeeType.' + land.feeType }}">{{ land.feeType }}</td>
-          <td>{{ land.description }}</td>
-          <td>{{ land.width }}</td>
-          <td>{{ land.height }}</td>
-          <td>{{ land.area }}</td>
-          <td>{{ land.latitude }}</td>
-          <td>{{ land.longitude }}</td>
+          <td><quill-view-html [content]="land.description ?? ''" theme="snow"></quill-view-html></td>
           <td class="text-right">
             <div class="btn-group">
               <button type="submit" [routerLink]="['/land', land.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
