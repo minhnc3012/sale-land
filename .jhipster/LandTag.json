@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20220119074659",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "land_tag",
+  "fields": [
+    {
+      "fieldName": "tag",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LandTag",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "land",
+      "otherEntityRelationshipName": "tags",
+      "relationshipName": "land",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

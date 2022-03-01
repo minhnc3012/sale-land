@@ -1,0 +1,25 @@
+{
+  "salelandApp": {
+    "landPhoto": {
+      "home": {
+        "title": "Land Photos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Thêm mới một Land Photo",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Land Photo",
+        "notFound": "No Land Photos found"
+      },
+      "created": "Một Land Photo mới được tạo với định danh {{ param }}",
+      "updated": "Một Land Photo cập nhật với định danh {{ param }}",
+      "deleted": "Một Land Photo đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Land Photo {{ id }}?"
+      },
+      "detail": {
+        "title": "Land Photo"
+      },
+      "id": "ID",
+      "imageUrl": "Image Url",
+      "land": "Land"
+    }
+  }
+}

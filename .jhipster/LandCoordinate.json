@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20220119091533",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "land_coordinate",
+  "fields": [
+    {
+      "fieldName": "latitude",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "LandCoordinate",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "land",
+      "otherEntityRelationshipName": "coordinates",
+      "relationshipName": "land",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

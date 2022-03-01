@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="landCoordinate">
+      <h2 data-cy="landCoordinateDetailsHeading"><span jhiTranslate="salelandApp.landCoordinate.detail.title">Land Coordinate</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ landCoordinate.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.landCoordinate.latitude">Latitude</span></dt>
+        <dd>
+          <span>{{ landCoordinate.latitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.landCoordinate.longitude">Longitude</span></dt>
+        <dd>
+          <span>{{ landCoordinate.longitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="salelandApp.landCoordinate.land">Land</span></dt>
+        <dd>
+          <div *ngIf="landCoordinate.land">
+            <a [routerLink]="['/land', landCoordinate.land?.id, 'view']">{{ landCoordinate.land?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/land-coordinate', landCoordinate.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
