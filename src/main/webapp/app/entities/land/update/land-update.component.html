@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="d-flex justify-content-center">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
       <h2 id="jhi-land-heading" data-cy="LandCreateUpdateHeading" jhiTranslate="salelandApp.land.home.createOrEditLabel">
@@ -8,23 +8,23 @@
       <div>
         <jhi-alert-error></jhi-alert-error>
 
-        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
-          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
           <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.title" for="field_title">Title</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.title" for="field_title">Title</label>
           <input type="text" class="form-control" name="title" id="field_title" data-cy="title" formControlName="title" />
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.address" for="field_address">Address</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.address" for="field_address">Address</label>
           <input type="text" class="form-control" name="address" id="field_address" data-cy="address" formControlName="address" />
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.status" for="field_status">Status</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.status" for="field_status">Status</label>
           <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
             <option [ngValue]="null">{{ 'salelandApp.LandStatus.null' | translate }}</option>
             <option *ngFor="let landStatus of landStatusValues" [value]="landStatus">
@@ -33,21 +33,21 @@
           </select>
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.type" for="field_type">Type</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.type" for="field_type">Type</label>
           <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
             <option [ngValue]="null">{{ 'salelandApp.LandType.null' | translate }}</option>
             <option *ngFor="let landType of landTypeValues" [value]="landType">{{ 'salelandApp.LandType.' + landType | translate }}</option>
           </select>
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.price" for="field_price">Price</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.price" for="field_price">Price</label>
           <input type="number" class="form-control" name="price" id="field_price" data-cy="price" formControlName="price" />
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.init" for="field_init">Init</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.init" for="field_init">Init</label>
           <select class="form-control" name="init" formControlName="init" id="field_init" data-cy="init">
             <option [ngValue]="null">{{ 'salelandApp.UnitPriceType.null' | translate }}</option>
             <option *ngFor="let unitPriceType of unitPriceTypeValues" [value]="unitPriceType">
@@ -56,8 +56,8 @@
           </select>
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.priceType" for="field_priceType">Price Type</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.priceType" for="field_priceType">Price Type</label>
           <select class="form-control" name="priceType" formControlName="priceType" id="field_priceType" data-cy="priceType">
             <option [ngValue]="null">{{ 'salelandApp.PriceType.null' | translate }}</option>
             <option *ngFor="let priceType of priceTypeValues" [value]="priceType">
@@ -66,16 +66,16 @@
           </select>
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.feeType" for="field_feeType">Fee Type</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.feeType" for="field_feeType">Fee Type</label>
           <select class="form-control" name="feeType" formControlName="feeType" id="field_feeType" data-cy="feeType">
             <option [ngValue]="null">{{ 'salelandApp.FeeType.null' | translate }}</option>
             <option *ngFor="let feeType of feeTypeValues" [value]="feeType">{{ 'salelandApp.FeeType.' + feeType | translate }}</option>
           </select>
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.description" for="field_description">Description</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.description" for="field_description">Description</label>
           <input
             type="text"
             class="form-control"
@@ -86,28 +86,28 @@
           />
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.width" for="field_width">Width</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.width" for="field_width">Width</label>
           <input type="number" class="form-control" name="width" id="field_width" data-cy="width" formControlName="width" />
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.height" for="field_height">Height</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.height" for="field_height">Height</label>
           <input type="number" class="form-control" name="height" id="field_height" data-cy="height" formControlName="height" />
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.area" for="field_area">Area</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.area" for="field_area">Area</label>
           <input type="number" class="form-control" name="area" id="field_area" data-cy="area" formControlName="area" />
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.latitude" for="field_latitude">Latitude</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.latitude" for="field_latitude">Latitude</label>
           <input type="number" class="form-control" name="latitude" id="field_latitude" data-cy="latitude" formControlName="latitude" />
         </div>
 
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="salelandApp.land.longitude" for="field_longitude">Longitude</label>
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="salelandApp.land.longitude" for="field_longitude">Longitude</label>
           <input type="number" class="form-control" name="longitude" id="field_longitude" data-cy="longitude" formControlName="longitude" />
         </div>
       </div>
