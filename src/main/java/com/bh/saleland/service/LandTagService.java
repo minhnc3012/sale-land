@@ -37,6 +37,17 @@ public class LandTagService {
     }
 
     /**
+     * Update a landTag.
+     *
+     * @param landTag the entity to save.
+     * @return the persisted entity.
+     */
+    public LandTag update(LandTag landTag) {
+        log.debug("Request to save LandTag : {}", landTag);
+        return landTagRepository.save(landTag);
+    }
+
+    /**
      * Partially update a landTag.
      *
      * @param landTag the entity to update partially.

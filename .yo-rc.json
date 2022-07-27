@@ -22,7 +22,7 @@
     "entities": ["Land", "LandTag", "LandPhoto", "LandCoordinate"],
     "entitySuffix": "",
     "jhiPrefix": "jhi",
-    "jhipsterVersion": "7.7.0",
+    "jhipsterVersion": "7.8.1",
     "languages": ["en", "vi"],
     "lastLiquibaseTimestamp": 1642583733000,
     "messageBroker": false,

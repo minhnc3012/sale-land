@@ -93,7 +93,7 @@ public class LandPhotoResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        LandPhoto result = landPhotoService.save(landPhoto);
+        LandPhoto result = landPhotoService.update(landPhoto);
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, landPhoto.getId().toString()))

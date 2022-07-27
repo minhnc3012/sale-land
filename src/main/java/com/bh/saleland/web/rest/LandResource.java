@@ -91,7 +91,7 @@ public class LandResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        Land result = landService.save(land);
+        Land result = landService.update(land);
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, land.getId().toString()))

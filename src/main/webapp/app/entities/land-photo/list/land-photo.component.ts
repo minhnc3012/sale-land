@@ -57,7 +57,7 @@ export class LandPhotoComponent implements OnInit {
     this.handleNavigation();
   }
 
-  trackId(index: number, item: ILandPhoto): number {
+  trackId(_index: number, item: ILandPhoto): number {
     return item.id!;
   }
 

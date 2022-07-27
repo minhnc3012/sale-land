@@ -54,7 +54,7 @@ export class LandTagUpdateComponent implements OnInit {
     }
   }
 
-  trackLandById(index: number, item: ILand): number {
+  trackLandById(_index: number, item: ILand): number {
     return item.id!;
   }
 

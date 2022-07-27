@@ -57,7 +57,7 @@ export class LandComponent implements OnInit {
     this.handleNavigation();
   }
 
-  trackId(index: number, item: ILand): number {
+  trackId(_index: number, item: ILand): number {
     return item.id!;
   }
 
