@@ -91,7 +91,7 @@ public class LandTagResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        LandTag result = landTagService.save(landTag);
+        LandTag result = landTagService.update(landTag);
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, landTag.getId().toString()))

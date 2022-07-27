@@ -93,7 +93,7 @@ public class LandCoordinateResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        LandCoordinate result = landCoordinateService.save(landCoordinate);
+        LandCoordinate result = landCoordinateService.update(landCoordinate);
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, landCoordinate.getId().toString()))

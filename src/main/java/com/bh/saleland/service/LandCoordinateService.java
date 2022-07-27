@@ -37,6 +37,17 @@ public class LandCoordinateService {
     }
 
     /**
+     * Update a landCoordinate.
+     *
+     * @param landCoordinate the entity to save.
+     * @return the persisted entity.
+     */
+    public LandCoordinate update(LandCoordinate landCoordinate) {
+        log.debug("Request to save LandCoordinate : {}", landCoordinate);
+        return landCoordinateRepository.save(landCoordinate);
+    }
+
+    /**
      * Partially update a landCoordinate.
      *
      * @param landCoordinate the entity to update partially.

@@ -37,6 +37,17 @@ public class LandService {
     }
 
     /**
+     * Update a land.
+     *
+     * @param land the entity to save.
+     * @return the persisted entity.
+     */
+    public Land update(Land land) {
+        log.debug("Request to save Land : {}", land);
+        return landRepository.save(land);
+    }
+
+    /**
      * Partially update a land.
      *
      * @param land the entity to update partially.

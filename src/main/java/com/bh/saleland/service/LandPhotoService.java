@@ -37,6 +37,17 @@ public class LandPhotoService {
     }
 
     /**
+     * Update a landPhoto.
+     *
+     * @param landPhoto the entity to save.
+     * @return the persisted entity.
+     */
+    public LandPhoto update(LandPhoto landPhoto) {
+        log.debug("Request to save LandPhoto : {}", landPhoto);
+        return landPhotoRepository.save(landPhoto);
+    }
+
+    /**
      * Partially update a landPhoto.
      *
      * @param landPhoto the entity to update partially.

@@ -55,7 +55,7 @@ export class LandCoordinateUpdateComponent implements OnInit {
     }
   }
 
-  trackLandById(index: number, item: ILand): number {
+  trackLandById(_index: number, item: ILand): number {
     return item.id!;
   }
 
